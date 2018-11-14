@@ -1,0 +1,31 @@
+
+
+  <div class="container">
+    <h1>All our Flats</h1>
+    <div class="row">
+      <% @flats.each do |flat| %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+            <div class="card-category"><%= flat.name%></div>
+            <div class="card-description">
+              <h2><%=flat.address%></h2>
+              <p><i class="fas fa-dollar-sign"></i>
+              <%=flat.price_per_night %></p>
+              <p><i class="fas fa-user-friends"></i><%=flat.number_of_guests %> </p>
+             <a class='more' <%= link_to 'more info', flat_path(flat)%></a>
+              <a class='edit'<%= link_to 'edit', edit_flat_path(flat)%></a>
+              <a class='delete'<%= link_to "delete", flat_path(flat),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+
+
+
+
+
